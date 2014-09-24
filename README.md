@@ -8,9 +8,8 @@ Prerequisties: **ArcObjects SDK** (from the ArcGIS installation disc) and **Visu
 
 1. Clone this repository.
 2. Open the project by double-clicking **FissureStationImport.sln**.
-3. Run **Build**, **Clean Solution** (This will clear the **/bin/Debug** folder).
-4. Create the following file called `config.txt` and place in the root directory.
-5. Inside `config.txt` write the connection properties for your ArcSDE geodatabse.
+3. Create the following file called `config.txt` and place in the root directory.
+4. Inside `config.txt` write the connection properties for your ArcSDE geodatabse.
   ```
   server=[your server location for the ArcSDE geodatabse]
   instance=sde:sqlserver:[your server]\[your path]
@@ -19,8 +18,7 @@ Prerequisties: **ArcObjects SDK** (from the ArcGIS installation disc) and **Visu
   version=[your version]
   ```
   See ESRI help for [Connecting to geodatbases and databases](http://resources.arcgis.com/en/help/arcobjects-net/conceptualhelp/0001/0001000003s8000000.htm).
-
-5. Click **Debug**, **Start Debugging** (This will build the **FissureStationImport.exe** in the **/bin/Debug** folder).
+5. Run **Build**->**Build Solution**. (This will build **FissureStationImport.exe** in the **/bin/Debug** folder.)
 
 ### Run
 
