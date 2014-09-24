@@ -131,7 +131,7 @@ namespace FissureStationImport
                     newDescription.set_Value(infoIndexes["fissuredepth"], sourcePoint.get_Value(sourceIndexes["Fissure_De"]));
                     newDescription.set_Value(infoIndexes["vegetation"], sourcePoint.get_Value(sourceIndexes["Vegetation"]));
                     newDescription.set_Value(infoIndexes["fissureshape"], sourcePoint.get_Value(sourceIndexes["Fissure_Sh"]));
-                    newDescription.set_Value(infoIndexes["linecontinuity"], sourcePoint.get_Value(sourceIndexes["Line_Conti"]));
+                    newDescription.set_Value(infoIndexes["linecontinuity"], string.IsNullOrEmpty(sourcePoint.get_Value(sourceIndexes["Line_Conti"]).ToString().Trim()) ? DBNull.Value : sourcePoint.get_Value(sourceIndexes["Line_Conti"]));
                     newDescription.set_Value(infoIndexes["datafile"], sourcePoint.get_Value(sourceIndexes["Datafile"]));
                     newDescription.set_Value(infoIndexes["locationwrtfissure"], sourcePoint.get_Value(sourceIndexes["Location_w"]));
                     newDescription.set_Value(infoIndexes["vegetationtype"], sourcePoint.get_Value(sourceIndexes["Vegetatio2"]));
