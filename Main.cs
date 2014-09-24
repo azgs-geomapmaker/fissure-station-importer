@@ -58,7 +58,7 @@ namespace FissureStationImport
             #region Prepare for Loop
             // Get a reference to the Stations featureclass in EarthFissure SDE database
             IWorkspace sdeWs = OpenFissureWorkspace();
-            IFeatureClass stations = commonFunctions.OpenFeatureClass(sdeWs, "StationPoints");
+            IFeatureClass stations = commonFunctions.OpenFeatureClass(sdeWs, "Stations");
 
             // Get a reference to the Fissure Info table in the SDE database
             ITable fissInfoTable = commonFunctions.OpenTable(sdeWs, "FissureStationDescription");
@@ -108,34 +108,34 @@ namespace FissureStationImport
 
                     // Make the new StationPoint
                     IFeatureBuffer newStation = stations.CreateFeatureBuffer();
-                    newStation.set_Value(stationIndexes["StationPoints_ID"], stationID);
+                    newStation.set_Value(stationIndexes["Stations_ID"], stationID);
                     newStation.set_Value(stationIndexes["FieldID"], "");
                     newStation.set_Value(stationIndexes["Label"], "");
                     newStation.set_Value(stationIndexes["Symbol"], sourcePoint.get_Value(sourceIndexes["Waypoint_T"]));
                     newStation.set_Value(stationIndexes["PlotAtScale"], 24000);
                     newStation.set_Value(stationIndexes["LocationConfidenceMeters"], sourcePoint.get_Value(sourceIndexes["Horz_Prec"]));
-                    newStation.set_Value(stationIndexes["Latitude"], locPoint.Y);
-                    newStation.set_Value(stationIndexes["Longitude"], locPoint.X);
+                    newStation.set_Value(stationIndexes["MapY"], locPoint.Y);
+                    newStation.set_Value(stationIndexes["MapX"], locPoint.X);
                     newStation.set_Value(stationIndexes["DataSourceID"], "");
                     newStation.Shape = sourcePoint.ShapeCopy;
                     stationInsert.InsertFeature(newStation);
 
                     // Make the new FissureDescription
                     IRowBuffer newDescription = fissInfoTable.CreateRowBuffer();
-                    newDescription.set_Value(infoIndexes["StationID"], stationID);
-                    newDescription.set_Value(infoIndexes["DateOfObservation"], sourcePoint.get_Value(sourceIndexes["Date_of_th"]));
-                    newDescription.set_Value(infoIndexes["TimeOfObservation"], sourcePoint.get_Value(sourceIndexes["Time_of_th"]));
-                    newDescription.set_Value(infoIndexes["SurfaceExpression"], sourcePoint.get_Value(sourceIndexes["Surface_Ex"]));
-                    newDescription.set_Value(infoIndexes["Displacement"], sourcePoint.get_Value(sourceIndexes["Displaceme"]));
-                    newDescription.set_Value(infoIndexes["SurfaceWidth"], sourcePoint.get_Value(sourceIndexes["Surface_Wi"]));
-                    newDescription.set_Value(infoIndexes["FissureDepth"], sourcePoint.get_Value(sourceIndexes["Fissure_De"]));
-                    newDescription.set_Value(infoIndexes["Vegetation"], sourcePoint.get_Value(sourceIndexes["Vegetation"]));
-                    newDescription.set_Value(infoIndexes["FissureShape"], sourcePoint.get_Value(sourceIndexes["Fissure_Sh"]));
-                    newDescription.set_Value(infoIndexes["LineContinuity"], sourcePoint.get_Value(sourceIndexes["Line_Conti"]));
-                    newDescription.set_Value(infoIndexes["DataFile"], sourcePoint.get_Value(sourceIndexes["Datafile"]));
-                    newDescription.set_Value(infoIndexes["LocationWrtFissure"], sourcePoint.get_Value(sourceIndexes["Location_w"]));
-                    newDescription.set_Value(infoIndexes["VegetationType"], sourcePoint.get_Value(sourceIndexes["Vegetatio2"]));
-                    newDescription.set_Value(infoIndexes["FissDescription_ID"], descriptionID);
+                    newDescription.set_Value(infoIndexes["stationid"], stationID);
+                    newDescription.set_Value(infoIndexes["dateofobservation"], sourcePoint.get_Value(sourceIndexes["Date_of_th"]));
+                    newDescription.set_Value(infoIndexes["timeofobservation"], sourcePoint.get_Value(sourceIndexes["Time_of_th"]));
+                    newDescription.set_Value(infoIndexes["surfaceexpression"], sourcePoint.get_Value(sourceIndexes["Surface_Ex"]));
+                    newDescription.set_Value(infoIndexes["displacement"], sourcePoint.get_Value(sourceIndexes["Displaceme"]));
+                    newDescription.set_Value(infoIndexes["surfacewidth"], sourcePoint.get_Value(sourceIndexes["Surface_Wi"]));
+                    newDescription.set_Value(infoIndexes["fissuredepth"], sourcePoint.get_Value(sourceIndexes["Fissure_De"]));
+                    newDescription.set_Value(infoIndexes["vegetation"], sourcePoint.get_Value(sourceIndexes["Vegetation"]));
+                    newDescription.set_Value(infoIndexes["fissureshape"], sourcePoint.get_Value(sourceIndexes["Fissure_Sh"]));
+                    newDescription.set_Value(infoIndexes["linecontinuity"], sourcePoint.get_Value(sourceIndexes["Line_Conti"]));
+                    newDescription.set_Value(infoIndexes["datafile"], sourcePoint.get_Value(sourceIndexes["Datafile"]));
+                    newDescription.set_Value(infoIndexes["locationwrtfissure"], sourcePoint.get_Value(sourceIndexes["Location_w"]));
+                    newDescription.set_Value(infoIndexes["vegetationtype"], sourcePoint.get_Value(sourceIndexes["Vegetatio2"]));
+                    newDescription.set_Value(infoIndexes["fissdescription_id"], descriptionID);
                     stationInfoInsert.InsertRow(newDescription);
 
                     // Iterate
@@ -193,7 +193,7 @@ namespace FissureStationImport
             #region Prepare for Loop
             // Get a reference to the Stations featureclass in EarthFissure SDE database
             IWorkspace sdeWs = OpenFissureWorkspace();
-            IFeatureClass stations = commonFunctions.OpenFeatureClass(sdeWs, "StationPoints");
+            IFeatureClass stations = commonFunctions.OpenFeatureClass(sdeWs, "Stations");
 
             // Get a reference to the Fissure Info table in the SDE database
             ITable nonFissInfoTable = commonFunctions.OpenTable(sdeWs, "NonFissureStationDescription");
@@ -243,24 +243,24 @@ namespace FissureStationImport
 
                     // Make the new StationPoint
                     IFeatureBuffer newStation = stations.CreateFeatureBuffer();
-                    newStation.set_Value(stationIndexes["StationPoints_ID"], stationID);
+                    newStation.set_Value(stationIndexes["Stations_ID"], stationID);
                     newStation.set_Value(stationIndexes["FieldID"], "");
                     newStation.set_Value(stationIndexes["Label"], "");
                     newStation.set_Value(stationIndexes["Symbol"], "NonFissure");
                     newStation.set_Value(stationIndexes["PlotAtScale"], 24000);
                     newStation.set_Value(stationIndexes["LocationConfidenceMeters"], sourcePoint.get_Value(sourceIndexes["Horz_Prec"]));
-                    newStation.set_Value(stationIndexes["Latitude"], locPoint.Y);
-                    newStation.set_Value(stationIndexes["Longitude"], locPoint.X);
+                    newStation.set_Value(stationIndexes["MapY"], locPoint.Y);
+                    newStation.set_Value(stationIndexes["MapX"], locPoint.X);
                     newStation.set_Value(stationIndexes["DataSourceID"], "");
                     newStation.Shape = sourcePoint.ShapeCopy;
                     stationInsert.InsertFeature(newStation);
 
                     // Make the new FissureDescription
                     IRowBuffer newDescription = nonFissInfoTable.CreateRowBuffer();
-                    newDescription.set_Value(infoIndexes["StationID"], stationID);
-                    newDescription.set_Value(infoIndexes["TypeOfLineament"], sourcePoint.get_Value(sourceIndexes["Type_of_Li"]));
-                    newDescription.set_Value(infoIndexes["Datafile"], sourcePoint.get_Value(sourceIndexes["Datafile"]));
-                    newDescription.set_Value(infoIndexes["NonFissDescription_ID"], descriptionID);
+                    newDescription.set_Value(infoIndexes["stationid"], stationID);
+                    newDescription.set_Value(infoIndexes["typeoflineament"], sourcePoint.get_Value(sourceIndexes["Type_of_Li"]));
+                    newDescription.set_Value(infoIndexes["datafile"], sourcePoint.get_Value(sourceIndexes["Datafile"]));
+                    newDescription.set_Value(infoIndexes["nonfissdescription_id"], descriptionID);
                     stationInfoInsert.InsertRow(newDescription);
 
                     // Iterate

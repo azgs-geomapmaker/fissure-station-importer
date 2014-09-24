@@ -15,7 +15,7 @@ namespace FissureStationImport
         static void Main()
         {
             //ESRI License Initializer generated code.
-            m_AOLicenseInitializer.InitializeApplication(new esriLicenseProductCode[] { esriLicenseProductCode.esriLicenseProductCodeArcInfo },
+            m_AOLicenseInitializer.InitializeApplication(new esriLicenseProductCode[] { esriLicenseProductCode.esriLicenseProductCodeStandard },
             new esriLicenseExtensionCode[] { });
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
