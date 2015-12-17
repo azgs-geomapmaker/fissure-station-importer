@@ -1,0 +1,6 @@
+dbfile=C:\Users\<username>\AppData\Roaming\ESRI\Desktop10.2\ArcCatalog\EarthFissures.sde
+server=beryl
+instance=sde:sqlserver:beryl\beryl
+database=EarthFissue
+authentication_mode=OSA
+version=dbo.DEFAULT
