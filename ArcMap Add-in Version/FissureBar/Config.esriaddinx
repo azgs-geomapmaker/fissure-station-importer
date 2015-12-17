@@ -1,0 +1,36 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>FissureBar</Name>
+  <AddInID>{7097182a-efcd-42c6-a108-786da6012d15}</AddInID>
+  <Description>Port of the Fissure tool to a Desktop Add-in</Description>
+  <Version>1.0</Version>
+  <Image>Images\FissureBar.png</Image>
+  <Author>ghudman</Author>
+  <Company>Arizona Geological Survey</Company>
+  <Date>12/1/2015</Date>
+  <Targets>
+    <Target name="Desktop" version="10.2" />
+  </Targets>
+  <AddIn language="CLR" library="FissureBar.dll" namespace="FissureBar">
+    <ArcMap>
+      <Commands>
+        <Button id="FissureBar_Fishbutton" class="Fishbutton" message="Fissure Shape file import" caption="Fissure Waypoints" tip="Add-in command tooltip." category="Add-In Controls" image="Images\Fishbutton.png" />
+        <Button id="Arizona_Geological_Survey_FissureBar_NonFishbutton" class="NonFishbutton" message="Non-Fishure shapefile import" caption="Non-Fissure Waypoints" tip="Add-in command tooltip." category="Add-In Controls" image="Images\NonFishbutton.png" />
+      </Commands>
+      <Menus>
+        <Menu id="FissureBar_Menu" caption="Fissure Importer" isRootMenu="false">
+          <Items>
+            <Button separator="true" refID="FissureBar_Fishbutton" />
+            <Button separator="true" refID="Arizona_Geological_Survey_FissureBar_NonFishbutton" />
+          </Items>
+        </Menu>
+      </Menus>
+      <Toolbars>
+        <Toolbar id="Arizona_Geological_Survey_FissureBar_FissureBar" caption="FissureBar" showInitially="false">
+          <Items>
+            <Menu refID="FissureBar_Menu" />
+          </Items>
+        </Toolbar>
+      </Toolbars>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>
