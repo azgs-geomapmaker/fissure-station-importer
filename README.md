@@ -38,23 +38,28 @@ reconfigured as  an Add-in that can be loaded into the ArcMap.
 
 ### ArcGIS Add-in Setup
 
-1.  To use the existing Add-in Executable download the 2 files
+1.  To use the existing Add-in Executable download the 2 files:
 
      ArcMap Add-in Version/FissureBar.esriAddIn
-	 ArcMap Add-in Version/config.txt
+     ArcMap Add-in Version/config.txt
 	 
-2.  Copy config.txt	to C:\tmp directory.  This file provides connection setup.  You can change
-    either the dbfile, which is an Arc connection file to the EarthFissure database, or
-	all the connection parameters (database, server, instance,version authentication mode).
-	If dbfile is present, it will use that parameter over the connection parameters.
+2.  Copy config.txt to C:\tmp directory.  This file provides connection setup.  You can change
+    either the dbfile, which is a path to an Arc connection file to the EarthFissure database, or
+    all the connection parameters (database, server, instance,version authentication mode).
+    If dbfile is present, it will use that parameter over the other connection parameters.
 	
-3.   In ArcMap, click Customize
-4.   Select Customize Mode…
-5 .  Click Add from file…
-8.   Navigate to and select FissureBar.esriAddIn
+3.   In ArcMap, click Customize then Add-In Manager
+4.   Select Customize Mode and the Options Tab …
+5 .  Click the Add from file button …
+8.   Navigate to and select the FissureBar.esriAddIn.
 9.   Click Open
-	
-The Visual Studio project within the ArcMap Add-in Version is a standalone project in the VS 2010 environment.
+10.  In the Toolbars List select the FissurBar to make the toolbar visible.
 
 The Add-in runs the same as the standalone version, there are 2 buttons that allow you to import shape files.
+
+Developers 
+
+The Visual Studio project within the ArcMap Add-in Version folder is a standalone project in the VS 2010 environment. 
+
+
 
